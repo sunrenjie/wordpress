@@ -180,6 +180,7 @@ class WP {
 			$pathinfo = str_replace( "%", "%25", $pathinfo );
 
 			list( $req_uri ) = explode( '?', $_SERVER['REQUEST_URI'] );
+			$req_uri = rawurldecode($req_uri);
 			$self = $_SERVER['PHP_SELF'];
 			$home_path = trim( parse_url( home_url(), PHP_URL_PATH ), '/' );
 			$home_path_regex = sprintf( '|^%s|i', preg_quote( $home_path, '|' ) );
